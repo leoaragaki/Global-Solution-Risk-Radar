@@ -1,0 +1,239 @@
+[
+  {
+    "ContainingType": "RiskRadar.Controllers.AlertasController",
+    "Method": "Get",
+    "RelativePath": "api/Alertas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.AlertasController",
+    "Method": "Post",
+    "RelativePath": "api/Alertas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alerta",
+        "Type": "RiskRadar.Models.Alerta",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.AlertasController",
+    "Method": "GetById",
+    "RelativePath": "api/Alertas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.AlertasController",
+    "Method": "Put",
+    "RelativePath": "api/Alertas/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "alerta",
+        "Type": "RiskRadar.Models.Alerta",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.AlertasController",
+    "Method": "Delete",
+    "RelativePath": "api/Alertas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.DesastresController",
+    "Method": "Get",
+    "RelativePath": "api/Desastres",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.DesastresController",
+    "Method": "Post",
+    "RelativePath": "api/Desastres",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "desastre",
+        "Type": "RiskRadar.Models.Desastre",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.DesastresController",
+    "Method": "GetById",
+    "RelativePath": "api/Desastres/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.DesastresController",
+    "Method": "Put",
+    "RelativePath": "api/Desastres/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "desastre",
+        "Type": "RiskRadar.Models.Desastre",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.Controllers.DesastresController",
+    "Method": "Delete",
+    "RelativePath": "api/Desastres/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.API.Controllers.PessoasController",
+    "Method": "Get",
+    "RelativePath": "api/Pessoas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.API.Controllers.PessoasController",
+    "Method": "Post",
+    "RelativePath": "api/Pessoas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pessoa",
+        "Type": "RiskRadar.Models.PessoaAfetada",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.API.Controllers.PessoasController",
+    "Method": "GetById",
+    "RelativePath": "api/Pessoas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.API.Controllers.PessoasController",
+    "Method": "Put",
+    "RelativePath": "api/Pessoas/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pessoa",
+        "Type": "RiskRadar.Models.PessoaAfetada",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RiskRadar.API.Controllers.PessoasController",
+    "Method": "Delete",
+    "RelativePath": "api/Pessoas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

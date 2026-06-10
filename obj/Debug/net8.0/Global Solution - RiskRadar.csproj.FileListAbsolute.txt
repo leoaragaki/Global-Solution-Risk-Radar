@@ -1,0 +1,46 @@
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.AssemblyInfo.cs
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.sourcelink.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\appsettings.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Global Solution - RiskRadar.staticwebassets.endpoints.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Global Solution - RiskRadar.exe
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Global Solution - RiskRadar.deps.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Global Solution - RiskRadar.runtimeconfig.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Global Solution - RiskRadar.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Global Solution - RiskRadar.pdb
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\scopedcss\bundle\Global Solution - RiskRadar.styles.css
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\swae.build.ex.cache
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global S.48E9C287.Up2Date
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\refint\Global Solution - RiskRadar.dll
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.pdb
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\Global Solution - RiskRadar.genruntimeconfig.cache
+C:\Users\user\source\repos\Global Solution - RiskRadar\obj\Debug\net8.0\ref\Global Solution - RiskRadar.dll
