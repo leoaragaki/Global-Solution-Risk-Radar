@@ -1,149 +1,298 @@
-📌 Sobre o Projeto
+# RiskRadar API
 
-O Risk Radar é uma plataforma inteligente desenvolvida para monitoramento, registro e gerenciamento de desastres naturais, permitindo a identificação rápida de pessoas afetadas e a geração automática de alertas de emergência.
+Este projeto implementa uma API RESTful em .NET 8.0 para gerenciar informações sobre desastres, alertas e pessoas afetadas. Ele foi desenvolvido como parte de uma solução global para monitoramento e resposta a situações de risco.
 
-O objetivo da solução é reduzir o tempo de resposta em situações críticas, auxiliando órgãos públicos, equipes de emergência e comunidades vulneráveis através da centralização de informações em uma única plataforma.
+## Integrantes do Grupo
+*   **Bruno Ferreira** - RM 563489
+*   **Gabriel Robertoni Padilha** - RM 566293
+*   **Leonardo Aragaki Rodrigues** - RM 562944
 
-Este projeto foi desenvolvido para a Global Solution FIAP 2026, alinhado aos desafios de prevenção e resposta a desastres naturais por meio da tecnologia.
+## Sumário
+1.  [Estrutura do Projeto](#1-estrutura-do-projeto)
+2.  [Modelos de Dados (Entidades)](#2-modelos-de-dados-entidades)
+3.  [Contexto do Banco de Dados](#3-contexto-do-banco-de-dados)
+4.  [Serviços](#4-serviços)
+5.  [Controladores (Endpoints da API)](#5-controladores-endpoints-da-api)
+6.  [Arquitetura do Sistema](#6-arquitetura-do-sistema)
+7.  [Fluxo de Ativação de Alerta](#7-fluxo-de-ativação-de-alerta)
+8.  [Configuração e Execução](#8-configuração-e-execução)
+9.  [Testes e Exemplos de Uso da API](#9-testes-e-exemplos-de-uso-da-api)
 
-🎯 Problema
+## 1. Estrutura do Projeto
+O projeto `RiskRadar` é uma aplicação .NET 8.0 que segue a arquitetura de API RESTful. A estrutura de pastas principal é organizada da seguinte forma:
 
-Desastres naturais como:
+*   `Controllers`: Contém os controladores da API que lidam com as requisições HTTP.
+*   `Data`: Contém o `DbContext` para interação com o banco de dados.
+*   `Models`: Define as classes de modelo de dados (entidades).
+*   `Services`: Contém a lógica de negócios e serviços da aplicação.
 
-🌧️ Enchentes
-🔥 Queimadas
-⛰️ Deslizamentos
-⛈️ Tempestades severas
+## 2. Modelos de Dados (Entidades)
 
-causam perdas humanas e prejuízos econômicos significativos todos os anos.
+### `Alerta`
+Representa um alerta gerado no sistema.
 
-Os principais desafios identificados são:
+| Propriedade       | Tipo     | Descrição                               |
+| :---------------- | :------- | :-------------------------------------- |
+| `Id`              | `int`    | Identificador único do alerta.          |
+| `Mensagem`        | `string` | Mensagem do alerta.                     |
+| `Nivel`           | `string` | Nível de gravidade do alerta.           |
+| `DataEnvio`       | `DateTime` | Data e hora do envio do alerta.         |
+| `PessoaAfetadaId` | `int`    | ID da pessoa afetada associada ao alerta. |
+| `PessoaAfetada`   | `PessoaAfetada` | Objeto da pessoa afetada (navegação).   |
 
-Falta de monitoramento integrado
-Baixa velocidade na comunicação de emergências
-Dificuldade em identificar pessoas afetadas
-Resposta tardia das equipes de resgate
-💡 Solução
+### `Desastre`
+Representa um evento de desastre.
 
-O Risk Radar permite:
+| Propriedade         | Tipo     | Descrição                                   |
+| :------------------ | :------- | :------------------------------------------ |
+| `Id`                | `int`    | Identificador único do desastre.            |
+| `Tipo`              | `string` | Tipo de desastre (ex: enchente, terremoto). |
+| `Gravidade`         | `string` | Nível de gravidade do desastre.             |
+| `DataOcorrencia`    | `DateTime` | Data e hora da ocorrência do desastre.      |
+| `AlarmeAtivado`     | `bool`   | Indica se um alarme foi ativado para o desastre. |
+| `PessoaAfetadaId`   | `int`    | ID da pessoa afetada associada ao desastre. |
+| `PessoaAfetada`     | `PessoaAfetada` | Objeto da pessoa afetada (navegação).       |
 
-✅ Cadastro de pessoas afetadas
+### `PessoaAfetada`
+Representa uma pessoa afetada por um desastre.
 
-✅ Registro de desastres
+| Propriedade       | Tipo     | Descrição                               |
+| :---------------- | :------- | :-------------------------------------- |
+| `Id`              | `int`    | Identificador único da pessoa afetada.  |
+| `Nome`            | `string` | Nome completo da pessoa.                |
+| `CPF`             | `string` | CPF da pessoa.                          |
+| `Telefone`        | `string` | Número de telefone da pessoa.           |
+| `Endereco`        | `string` | Endereço da pessoa.                     |
+| `NecessitaResgate`| `bool`   | Indica se a pessoa necessita de resgate. |
+| `IdDesastre`      | `int`    | ID do desastre associado à pessoa.      |
+| `Alertas`         | `List<Alerta>` | Lista de alertas associados à pessoa.   |
 
-✅ Emissão automática de alertas
+## 3. Contexto do Banco de Dados
 
-✅ Associação entre vítimas e ocorrências
+O `AppDbContext` é configurado para usar um banco de dados em memória (`RiskRadarDb`), o que é ideal para desenvolvimento e testes. Ele expõe os seguintes `DbSet`s:
 
-✅ Consulta em tempo real das informações
+*   `Pessoas`: Para gerenciar `PessoaAfetada`.
+*   `Desastres`: Para gerenciar `Desastre`.
+*   `Alertas`: Para gerenciar `Alerta`.
 
-✅ Integração futura com sensores IoT e sistemas de monitoramento espacial
+## 4. Serviços
 
-⚙️ Tecnologias Utilizadas
-Backend
-ASP.NET Core Web API (.NET 8)
-C#
-Entity Framework Core
-Swagger/OpenAPI
-Banco de Dados
-Oracle Database
-Integrações Futuras
-Java
-IoT (Internet of Things)
-Sensores Inteligentes
-Satélites de Monitoramento
-🏗️ Arquitetura do Projeto
-RiskRadar
-│
-├── Controllers
-│   ├── PessoasController.cs
-│   ├── DesastresController.cs
-│   └── AlertasController.cs
-│
-├── Models
-│   ├── PessoaAfetada.cs
-│   ├── Desastre.cs
-│   └── Alerta.cs
-│
-├── Data
-│   └── AppDbContext.cs
-│
-├── Services
-│   └── AlertaService.cs
-│
-├── Program.cs
-└── appsettings.json
-📊 Modelo de Negócio
-Entidades Principais
-Pessoa Afetada
+### `AlertaService`
+Responsável pela lógica de ativação de alertas.
 
-Representa os cidadãos impactados por um desastre.
+*   **`AtivarAlerta(Desastre desastre)`**: Verifica a gravidade do desastre. Se for "CRITICA", ativa o alarme do desastre e cria um novo registro de `Alerta` no banco de dados.
 
-Desastre
+## 5. Controladores (Endpoints da API)
 
-Representa eventos como enchentes, queimadas e deslizamentos.
+### `AlertasController`
+Gerencia operações relacionadas a alertas.
 
-Alerta
+| Método HTTP | Endpoint              | Descrição                                     | Parâmetros de Requisição | Corpo da Requisição | Resposta de Sucesso | Resposta de Erro |
+| :---------- | :-------------------- | :-------------------------------------------- | :--------------------- | :------------------ | :------------------ | :--------------- |
+| `GET`       | `/api/Alertas`        | Obtém todos os alertas.                       | Nenhum                 | Nenhum              | `200 OK` (Lista de Alertas) |                  |
+| `GET`       | `/api/Alertas/{id}`   | Obtém um alerta específico por ID.            | `id` (int)             | Nenhum              | `200 OK` (Alerta)   | `404 Not Found`  |
+| `POST`      | `/api/Alertas`        | Cria um novo alerta.                          | Nenhum                 | Objeto `Alerta`     | `201 Created`       | `400 Bad Request`|
+| `PUT`       | `/api/Alertas/{id}`   | Atualiza um alerta existente.                 | `id` (int)             | Objeto `Alerta`     | `204 No Content`    | `400 Bad Request`|
+| `DELETE`    | `/api/Alertas/{id}`   | Exclui um alerta por ID.                      | `id` (int)             | Nenhum              | `204 No Content`    | `404 Not Found`  |
 
-Representa notificações automáticas geradas pelo sistema.
+### `DesastresController`
+Gerencia operações relacionadas a desastres.
 
-🔄 Fluxo da Aplicação
-Pessoa Afetada
-       │
-       ▼
-Cadastro no Sistema
-       │
-       ▼
-Registro de Desastre
-       │
-       ▼
-Análise da Gravidade
-       │
-       ▼
-Gravidade CRÍTICA?
-       │
-   Sim ▼
-       │
-Geração Automática de Alerta
-       │
-       ▼
-Associação com Pessoa Afetada
-       │
-       ▼
-Consulta pelas Equipes de Emergência
-🚨 Regra de Negócio Principal
+| Método HTTP | Endpoint              | Descrição                                     | Parâmetros de Requisição | Corpo da Requisição | Resposta de Sucesso | Resposta de Erro |
+| :---------- | :-------------------- | :-------------------------------------------- | :--------------------- | :------------------ | :------------------ | :--------------- |
+| `GET`       | `/api/Desastres`      | Obtém todos os desastres.                     | Nenhum                 | Nenhum              | `200 OK` (Lista de Desastres) |                  |
+| `GET`       | `/api/Desastres/{id}` | Obtém um desastre específico por ID.          | `id` (int)             | Nenhum              | `200 OK` (Desastre) | `404 Not Found`  |
+| `POST`      | `/api/Desastres`      | Cria um novo desastre e ativa alerta se crítico. | Nenhum                 | Objeto `Desastre`   | `201 Created`       | `400 Bad Request`|
+| `PUT`       | `/api/Desastres/{id}` | Atualiza um desastre existente.               | `id` (int)             | Objeto `Desastre`   | `204 No Content`    | `400 Bad Request`|
+| `DELETE`    | `/api/Desastres/{id}` | Exclui um desastre por ID.                    | `id` (int)             | Nenhum              | `204 No Content`    | `404 Not Found`  |
 
-Quando um desastre é registrado com gravidade:
+### `PessoasController`
+Gerencia operações relacionadas a pessoas afetadas.
 
-CRÍTICA
+| Método HTTP | Endpoint              | Descrição                                     | Parâmetros de Requisição | Corpo da Requisição | Resposta de Sucesso | Resposta de Erro |
+| :---------- | :-------------------- | :-------------------------------------------- | :--------------------- | :------------------ | :------------------ | :--------------- |
+| `GET`       | `/api/Pessoas`        | Obtém todas as pessoas afetadas.              | Nenhum                 | Nenhum              | `200 OK` (Lista de Pessoas) |                  |
+| `GET`       | `/api/Pessoas/{id}`   | Obtém uma pessoa afetada específica por ID.   | `id` (int)             | Nenhum              | `200 OK` (PessoaAfetada) | `404 Not Found`  |
+| `POST`      | `/api/Pessoas`        | Cria uma nova pessoa afetada.                 | Nenhum                 | Objeto `PessoaAfetada` | `201 Created`       |                  |
+| `PUT`       | `/api/Pessoas/{id}`   | Atualiza uma pessoa afetada existente.        | `id` (int)             | Objeto `PessoaAfetada` | `204 No Content`    | `400 Bad Request`|
+| `DELETE`    | `/api/Pessoas/{id}`   | Exclui uma pessoa afetada por ID.             | `id` (int)             | Nenhum              | `204 No Content`    | `404 Not Found`  |
 
-o sistema:
+## 6. Arquitetura do Sistema
 
-Ativa automaticamente o alarme.
-Cria um alerta.
-Associa o alerta à pessoa afetada.
-Disponibiliza a informação para consulta via API.
-🔌 Endpoints Disponíveis
-Pessoas
-Método	Endpoint
-GET	/api/Pessoas
-GET	/api/Pessoas/{id}
-POST	/api/Pessoas
-PUT	/api/Pessoas/{id}
-DELETE	/api/Pessoas/{id}
-Desastres
-Método	Endpoint
-GET	/api/Desastres
-GET	/api/Desastres/{id}
-POST	/api/Desastres
-PUT	/api/Desastres/{id}
-DELETE	/api/Desastres/{id}
-Alertas
-Método	Endpoint
-GET	/api/Alertas
-GET	/api/Alertas/{id}
+A arquitetura do sistema RiskRadar é composta por um cliente (frontend ou outra aplicação) que interage com a API RESTful. A API, por sua vez, utiliza controladores para rotear as requisições, serviços para a lógica de negócios e um contexto de banco de dados para persistência de dados em um banco de dados em memória.
 
+```mermaid
+graph TD
+    Client[Cliente / Frontend] -- HTTP Requests --> API[RiskRadar API]
+    
+    subgraph "API .NET 8.0"
+        API --> Controllers[Controllers]
+        Controllers --> Services[Services / AlertaService]
+        Controllers --> Data[Data / AppDbContext]
+        Services --> Data
+        Data --> Models[Models / Entidades]
+    end
+    
+    subgraph "Banco de Dados"
+        Data -- Entity Framework Core --> DB[(In-Memory Database)]
+    end
 
-POST	/api/Alertas
-PUT	/api/Alertas/{id}
-DELETE	/api/Alertas/{id}
+    style DB fill:#f9f,stroke:#333,stroke-width:4px
+    style API fill:#bbf,stroke:#333,stroke-width:2px
+```
+
+## 7. Fluxo de Ativação de Alerta
+
+O fluxo de ativação de alerta ocorre quando um novo desastre é registrado e sua gravidade é classificada como "CRITICA".
+
+```mermaid
+sequenceDiagram
+    participant User as Usuário / Cliente
+    participant DC as DesastresController
+    participant AS as AlertaService
+    participant DB as AppDbContext (InMemory)
+
+    User->>DC: POST /api/Desastres (desastre)
+    DC->>DB: FindAsync(PessoaAfetadaId)
+    DB-->>DC: Pessoa encontrada
+    DC->>DB: Add(desastre)
+    DC->>DB: SaveChangesAsync()
+    DC->>AS: AtivarAlerta(desastre)
+    
+    alt Gravidade == "CRITICA"
+        AS->>AS: Set AlarmeAtivado = true
+        AS->>DB: Add(novo Alerta)
+        AS->>DB: SaveChangesAsync()
+    end
+    
+    DC-->>User: 201 Created (desastre)
+```
+
+## 8. Configuração e Execução
+
+Para configurar e executar o projeto localmente, siga os passos abaixo:
+
+### Pré-requisitos
+*   [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
+
+### Passos
+1.  **Clone o repositório:**
+    ```bash
+    git clone <URL_DO_SEU_REPOSITORIO>
+    cd .NET_Global Solution - RiskRadar/Global Solution - RiskRadar
+    ```
+2.  **Restaure as dependências:**
+    ```bash
+    dotnet restore
+    ```
+3.  **Execute a aplicação:**
+    ```bash
+    dotnet run
+    ```
+
+A aplicação será iniciada e estará disponível em `https://localhost:7001` (ou outra porta configurada). A interface Swagger UI estará acessível em `https://localhost:7001/swagger`.
+
+## 9. Testes e Exemplos de Uso da API
+
+Não foram encontrados arquivos de teste automatizados explícitos na estrutura do projeto. No entanto, a API pode ser testada manualmente utilizando a interface Swagger UI ou ferramentas como Postman/Insomnia.
+
+### Acesso à Swagger UI
+Após executar a aplicação, acesse `https://localhost:7001/swagger` no seu navegador. Lá você encontrará a documentação interativa de todos os endpoints da API, permitindo que você envie requisições e visualize as respostas diretamente.
+
+### Exemplos de Requisições (usando `curl` ou Postman/Insomnia)
+
+#### Criar uma Pessoa Afetada
+
+**Requisição:**
+```http
+POST /api/Pessoas
+Content-Type: application/json
+
+{
+  "nome": "Maria Silva",
+  "cpf": "123.456.789-00",
+  "telefone": "(11) 98765-4321",
+  "endereco": "Rua das Flores, 123",
+  "necessitaResgate": true,
+  "idDesastre": 0
+}
+```
+
+**Resposta (Exemplo):**
+```json
+{
+  "id": 1,
+  "nome": "Maria Silva",
+  "cpf": "123.456.789-00",
+  "telefone": "(11) 98765-4321",
+  "endereco": "Rua das Flores, 123",
+  "necessitaResgate": true,
+  "idDesastre": 0,
+  "alertas": []
+}
+```
+
+#### Criar um Desastre (com ativação de alerta)
+
+**Requisição:**
+```http
+POST /api/Desastres
+Content-Type: application/json
+
+{
+  "tipo": "Enchente",
+  "gravidade": "CRITICA",
+  "dataOcorrencia": "2024-06-10T10:00:00Z",
+  "alarmeAtivado": false,
+  "pessoaAfetadaId": 1
+}
+```
+
+**Resposta (Exemplo):**
+```json
+{
+  "id": 1,
+  "tipo": "Enchente",
+  "gravidade": "CRITICA",
+  "dataOcorrencia": "2024-06-10T10:00:00Z",
+  "alarmeAtivado": true,
+  "pessoaAfetadaId": 1,
+  "pessoaAfetada": null
+}
+```
+
+*Nota: A propriedade `alarmeAtivado` no corpo da requisição será sobrescrita pela lógica do serviço se a gravidade for "CRITICA".*
+
+#### Obter todos os Alertas
+
+**Requisição:**
+```http
+GET /api/Alertas
+```
+
+**Resposta (Exemplo):**
+```json
+[
+  {
+    "id": 1,
+    "mensagem": "ALERTA DE EMERGÊNCIA - CATÁSTROFE DETECTADA",
+    "nivel": "CRITICA",
+    "dataEnvio": "2024-06-10T10:00:00Z",
+    "pessoaAfetadaId": 1,
+    "pessoaAfetada": {
+      "id": 1,
+      "nome": "Maria Silva",
+      "cpf": "123.456.789-00",
+      "telefone": "(11) 98765-4321",
+      "endereco": "Rua das Flores, 123",
+      "necessitaResgate": true,
+      "idDesastre": 0,
+      "alertas": []
+    }
+  }
+]
+```
+
+## Referências
+
+*   [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
