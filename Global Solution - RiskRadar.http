@@ -1,0 +1,6 @@
+@Global_Solution___RiskRadar_HostAddress = http://localhost:5263
+
+GET {{Global_Solution___RiskRadar_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
